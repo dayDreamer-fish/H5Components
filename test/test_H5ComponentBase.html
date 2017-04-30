@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+    <title>IT教育网2015课程学习情况</title>
+    <style type="text/css">
+        body{
+            margin:0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+
+        .iphone{
+            width: 340px;
+            height: 540px !important;
+            background-color: #fff;
+            position: absolute !important;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+    </style>
+    <!-- 载入所有的组件资源 -->
+    <script type="text/javascript" src=../js/lib/jquery.js></script>
+    <script type="text/javascript" src=../js/lib/jquery-ui.min.js></script>
+    <script type="text/javascript" src=../js/lib/jquery.fullPage.js></script>
+    <script type="text/javascript" src=../js/H5ComponentBase.js></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    <body>
+    <!--用于开发测试H5ComponentBase对象（基本图文组件）-->
+    <div class="iphone" id="h5">
+        
+    </div>
+
+    <script type="text/javascript">
+        var cfg={
+            type:'base',
+            width:514,
+            height:306,
+            bg:'../images/p1_people.png',
+            css:{
+                bottom:0,
+                opacity:0
+            },
+            center:true,
+            animateIn:{bottom:80,opacity:1},
+            animateOut:{bottom:0,opacity:0},
+        }
+
+        var h5=new H5ComponentBase("myName",cfg);
+        $(".iphone").append(h5);
+
+        var leave=true;
+        $('body').click(function() {
+            leave =! leave;
+            $('.h5_component').trigger(leave?'onLeave':'onLoad');
+        });
+    </script>
+    </body>
+
+</html>

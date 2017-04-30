@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+    <title>IT教育网2015课程学习情况</title>
+    <style type="text/css">
+        body{
+            margin:0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+
+        .iphone{
+            width: 340px;
+            height: 540px !important;
+            background-color: #fff;
+            position: absolute !important;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+    </style>
+    <!-- 载入所有的组件资源 -->
+    <script type="text/javascript" src=../js/lib/jquery.js></script>
+    <script type="text/javascript" src=../js/lib/jquery-ui.min.js></script>
+    <script type="text/javascript" src=../js/lib/jquery.fullPage.js></script>
+    <script type="text/javascript" src=../js/H5ComponentBase.js></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    <!--引入柱状图的资源-->
+    <script type="text/javascript" src=../js/H5ComponentBar.js></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBar.css">
+
+    <body>
+    <!--用于开发测试H5ComponentBar对象（柱状图）-->
+    <div class="iphone" id="h5">
+        
+    </div>
+
+    <script type="text/javascript">
+        var cfg={
+            type:'bar',
+            width:530,
+            height:600,
+            data:[
+                ['javascript',.4,'red'],
+                ['CSS/HTML',.2,'yellow'],
+                ['CSS3',.15,'pink'],
+                ['HTML5',.3,'gray'],
+                ['jquery',.3,'orange'],
+                ['Bootstrap',.05,'black'],
+                ['AngularJs',.15,'blue']
+            ],
+            css:{
+                top:100,
+                opacity:0
+            },
+            center:true,
+            animateIn:{top:200,opacity:1},
+            animateOut:{top:100,opacity:0},
+        }
+
+        var h5=new H5ComponentBar("myBarComponent",cfg);
+        $(".iphone").append(h5);
+
+        var leave=true;
+        $('body').click(function() {
+            leave =! leave;
+            $('.h5_component').trigger(leave?'onLeave':'onLoad');
+        });
+
+
+    </script>
+    </body>
+
+</html>
